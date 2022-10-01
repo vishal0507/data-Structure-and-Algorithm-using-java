@@ -1,0 +1,31 @@
+// Single Insertion in Set : O(1)
+// For n Elements : O(n), 
+// Thus, Time complexity : O(n) Traverse set to count distinct 
+// Space Complexity: O(n) for Extra memory for set creation
+
+import java.util.*;
+import java.lang.*;
+
+class PrepInsta {
+    public static void main(String[] args) {
+        int[] arr = new int[] {
+            5,
+            8,
+            5,
+            7,
+            8,
+            10
+        };
+        int size = arr.length;
+
+        System.out.println(countDistinct(arr, size));
+    }
+
+    static int countDistinct(int[] arr, int size) {
+        Set < Integer > set = new HashSet < Integer > ();
+        for (int i = 0; i < size; i++)
+            set.add(arr[i]);
+
+        return set.size();
+    }
+}

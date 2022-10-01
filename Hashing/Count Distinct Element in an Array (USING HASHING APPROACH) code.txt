@@ -1,0 +1,25 @@
+class PrepInsta {
+    public static void main(String[] args) {
+        int[] primitiveArray = {
+            5,
+            8,
+            5,
+            7,
+            8,
+            10
+        };
+        Integer[] objectArray = new Integer[primitiveArray.length];
+
+        for (int ctr = 0; ctr < primitiveArray.length; ctr++) {
+            objectArray[ctr] = primitiveArray[ctr]; // returns Integer value
+        }
+
+        System.out.println(countDistinct(objectArray));
+    }
+
+    static int countDistinct(Integer[] arr) {
+        Set < Integer > set = new HashSet < Integer > (Arrays.asList(arr));
+
+        return set.size();
+    }
+}
