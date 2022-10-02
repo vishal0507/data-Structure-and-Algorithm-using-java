@@ -1,0 +1,68 @@
+package LinkedLists;
+ 
+import java.util.*;
+import java.io.*;
+import java.lang.*;
+ 
+class Node{
+  
+    int data;
+    Node next;
+ 
+    Node (int x) 
+    {
+        data = x;
+        next = null;
+    } 
+} 
+class LinkedList{
+
+    static Node insertLast (Node head, int data) 
+    {
+    
+        Node newNode = new Node (data);
+        // if this is the first node
+        if (head == null)
+        {
+            newNode.next = newNode;
+            return newNode;
+        }
+        // add element just after the head node
+        // swap data values of new_node and head node
+        // make the new_node(With swapped value) as the head node
+        newNode.next = head.next;
+        head.next = newNode;
+        int temp = head.data;
+        head.data = newNode.data;
+        newNode.data = temp;
+        return newNode;
+    }
+ 
+    static void display (Node head) 
+    {
+        if (head == null)
+            return;
+        Node temp = head;
+        do
+        {
+            System.out.print (temp.data + " ");
+            temp = temp.next;
+        }
+        while (temp != head);
+    }
+ 
+    public static void main (String args[]) 
+    {
+        Node head = null;
+        
+        head = insertLast (head, 12);
+        head = insertLast (head, 16);
+        head = insertLast (head, 20);
+        head = insertLast (head, 24);
+        head = insertLast (head, 30);
+        head = insertLast (head, 22);
+    
+        System.out.println (head.data);
+        display (head);
+    } 
+} 
